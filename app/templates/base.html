@@ -1,0 +1,35 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Behavioral Health Services Provided to the Medicaid and CHIP Population</title>
+</head>
+<body>
+    <h1>Behavioral Health Services + Medicaid and CHIP</h1>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Behavioral Health Services</a></li>
+            <li><a href="/medicaidchip">Medcaid and Chip</a></li>
+            <li><a href="/importance">Importance</a></li>
+            <li><a href="/data">Data</a></li>
+        </ul>
+    </nav>
+
+    {% if request.path == '/' %}
+        <p>This web service was designed to represent information related to behavioral health services provided to Medicaid and CHIP beneficiaries on a monthly basis across different states</p>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p>© 2023 HHA 504 Final. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
