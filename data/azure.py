@@ -26,31 +26,28 @@ DB_CHARSET = os.getenv("DB_CHARSET", "utf8mb4")
 
 Base = declarative_base()
 
+class BehavioralHealthService(Base):
+    __tablename__ = 'behavioral_health_services'
+
+    id = Column(Integer, primary_key=True)
+    state = Column(String(50))
+    month = Column(String(20))
+    service_type = Column(String(100))
+    count = Column(Integer)
+    rate_per_1000 = Column(String(50))
+
+patients = relationship('Patient', back_populates='behavioral_health_service')
+
 class Patient(Base):
     __tablename__ = 'patients'
 
     id = Column(Integer, primary_key=True)
-    first_name = Column(String(50), nullable=False)
-    last_name = Column(String(50), nullable=False)
-    date_of_birth = Column(Date, nullable=False)
-    gender = Column(String(10), nullable=False)
-    contact_number = Column(String(50))
-    insurance = Column(String(100), nullable=False)
+    name = Column(String(100))
+    date_of_birth = Column(Date)
+    diagnosis = Column(String(100))
+    behavioral_health_service_id = Column(Integer, ForeignKey('behavioral_health_services.id'))
 
-    records = relationship('MedicalRecord', back_populates='patient')
-
-class MedicalRecord(Base):
-    __tablename__ = 'medical_records'
-
-    id = Column(Integer, primary_key=True)
-    patient_id = Column(Integer, ForeignKey('patients.id'), nullable=False)
-    diagnosis = Column(String(100), nullable=False)
-    admission_date = Column(Date, nullable=False)
-    discharge_date = Column(Date)
-    allergies = Column(String(100), nullable=False)
-    pcp = Column(String(100), nullable=False)
-
-    patient = relationship('Patient', back_populates='records')
+behavioral_health_service = relationship('BehavioralHealthService', back_populates='patients')
 
 
 ### Part 2 - initial sqlalchemy-engine to connect to db:

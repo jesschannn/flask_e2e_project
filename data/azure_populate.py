@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from faker import Faker
-from azure import Patient, MedicalRecord
+from azure import BehavioralHealthService, Patient
 import random
 from datetime import timedelta
 import os
@@ -34,45 +34,32 @@ session = Session()
 # Create a Faker instance
 fake = Faker()
 
-def phone_number():
-    # Generate random numbers for each part of the phone number
-    p1 = str(random.randint(1, 999)).zfill(3)
-    p2 = str(random.randint(0, 999)).zfill(3)
-    p3 = str(random.randint(0, 9999)).zfill(4)
-
-    # Format the phone number as "000-000-0000"
-    format = f"{p1}-{p2}-{p3}"
-    return format
-
 # Function to generate fake patient data
-def create_fake_patient():
+def create_patient():
     return Patient(
-        first_name=fake.first_name(),
-        last_name=fake.last_name(),
+        name=fake.name(),
         date_of_birth=fake.date_of_birth(),
-        gender=random.choice(['Male', 'Female']),
-        contact_number=phone_number()
+        diagnosis=fake.sentence(nb_words=5)
     )
 
-# Function to generate fake medical record data
-def create_fake_medical_record(patient):
-    admission_date = fake.date_between(start_date='-30d', end_date='today')
-    discharge_date = admission_date + timedelta(days=random.randint(1, 15))
-    return MedicalRecord(
-        patient=patient,
-        diagnosis=fake.sentence(nb_words=5),
-        admission_date=admission_date,
-        discharge_date=discharge_date if random.choice([True, False]) else None
+# Function to generate fake behavioral health service data
+def create_behavioralhealthservice(patient):
+    return BehavioralHealthService(
+        state=fake.state(),
+        month=fake.month_name(),
+        service_type=random.choice(['Emergency Department', 'Telehealth', 'Inpatient', 'Outpatient']),
+        count=random.randint(1, 10000),
+        rate_per_1000=random.uniform(1, 150)
     )
 
 # Generate and insert fake data
 for _ in range(100):  # Adjust the number of records you want to generate
-    fake_patient = create_fake_patient()
+    fake_patient = create_patient()
     session.add(fake_patient)
     session.commit()
     
-    fake_medical_record = create_fake_medical_record(fake_patient)
-    session.add(fake_medical_record)
+    fake_behavioral_health_service = create_behavioralhealthservice(fake_patient)
+    session.add(fake_behavioral_health_service)
     session.commit()
 
 # Close the session
