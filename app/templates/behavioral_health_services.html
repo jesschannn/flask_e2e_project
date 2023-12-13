@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<section class="mb-6 table-container">
+    <div class="table">
+        <h2 class="text-xl mb-2">Data for Behavioral Health Services</h2>
+        <table class="table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">State</th>
+                    <th class="px-4 py-2">Month</th>
+                    <th class="px-4 py-2">Service Type</th>
+                    <th class="px-4 py-2">Count</th>
+                    <th class="px-4 py-2">Rate Per 1000 Beneficiaries</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for behavioralhealthservices in data2 %}
+                <tr>
+                    <td class="border px-4 py-2">{{ behavioral_health_services.state }}</td>
+                    <td class="border px-4 py-2">{{ behavioral_health_services.month }}</td>
+                    <td class="border px-4 py-2">{{ behavioral_health_services.service_type }}</td>
+                    <td class="border px-4 py-2">{{ behavioral_health_services.count }}</td>
+                    <td class="border px-4 py-2">{{ behavioral_health_services.rate_per_1000 }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
