@@ -1,0 +1,10 @@
+version: '3'
+services:
+  flask_app_1:
+    build: ./flask1
+    ports:
+      - "5002:5000"
+    volumes:
+      - ./flask1:/app
+
+## maybe keep

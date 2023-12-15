@@ -32,7 +32,7 @@ def about():
     return render_template('about.html')
 
 @app.route('/importance')
-def mental():
+def importance():
     return render_template('importance.html')
 
 # Load data from CSV file
@@ -51,27 +51,20 @@ def display_csv():
 
     return render_template('data.html', data=sample_data)
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+@app.route('/api', methods=['GET'])
+def api_get():
+    name = request.args.get('name', 'nothing')
+    response = {"message": f'Hi {name}! Welcome to my Medical Malpractice Web App!'}
+    return jsonify(response)
 
-@app.route('/submit_contact', methods=['POST'])
-def submit_contact():
-    name = request.form.get('name')
-    email = request.form.get('email')
-    phone_number = request.form.get('phone_number')
-    message = request.form.get('message')
-
-    return redirect(url_for('thank_you'))
-
-@app.route('/thank_you')
-def thank_you():
-    return render_template('thank_you.html')
-
-@app.route('/error')
-def error():
-    raise Exception('Error!')
-
+@app.route('/api', methods=['POST'])
+def api_post():
+    data = request.get_json()
+    if data is None:
+        return jsonify({'error': 'Invalid JSON'}), 400
+    
+    name = data.get('name', 'nothing')
+    return jsonify({'message': f'Hello {name}! Welcome to my Medical Malpractice Web App!'})
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
