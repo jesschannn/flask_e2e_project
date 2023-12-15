@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="mb-6">
+    <div>
+        <h2 class="text-xl mb-2">Data</h2>
+        <p>
+            The dataset comprises information regarding the most recent 79,210 payments made for claims. However, this web page will only display a sample of that dataset.
+        </p>
+    </div>
+</section>
+
+<section class="mb-6">
+    <table class="border-collapse border-2 border-gray-500">
+        <thead>
+            <tr>
+                {% for header in data[0] %}
+                    <th class="border-2 border-gray-500 p-2">{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data[1:] %}
+                <tr>
+                    {% for cell in row %}
+                        <td class="border-2 border-gray-500 p-2">{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

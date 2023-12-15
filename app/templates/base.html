@@ -4,33 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Behavioral Health Services</title>
+    <title>HHA 504 Final: Medical Malpractice</title>
     
     <!-- Tailwind CSS via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-sky-100">
+<body class="bg-blue-200">
 
-    <header class="bg-sky-300 text-white p-4">
-        <h1 class="text-2xl">Welcome to My HHA 504 Final Application</h1>
+    <header class="bg-blue-400 text-white p-5">
+        <h1 class="text-2xl">Learn About Medical Malpractice!</h1>
         <nav>
             <ul class="flex space-x-4">
                 <li><a href="/" class="hover:underline">Home</a></li>
-                <li><a href="/behavioralhealthservices" class="hover:underline">Behavioral Health Services</a></li>
-                <li><a href="/patients" class="hover:underline">Patients</a></li>
-                <li><a href="/importance" class="hover:underline">Importance of Services</a></li>
+                <li><a href="/about" class="hover:underline">About</a></li>
+                <li><a href="/importance" class="hover:underline">Importance</a></li>
+                <li><a href="/data" class="hover:underline">Data</a></li>
+                <li><a href="/contact" class="hover:underline">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="p-4">
 
-        {% block content %}{% endblock %}
+        {% block content %}
+        <p>
+            Welcome! This website application will further explore data related to medical malpractice, the importance of acknowledging medical malpractice, and lastly provide a way for others to reach out regarding more information and / or questions. This was created for my HHA 504 final project.</p>
+        <img src="/static/1.jpeg" width="300" height="200" class="max-w-full">
+        {% endblock %}
 
     </main>
 
-    <footer class="bg-sky-300 text-white p-4 mt-6">
+    <footer class="bg-blue-400 text-white p-5 mt-6">
         <p>© 2023 HHA 504 Final. All Rights Reserved.</p>
     </footer>
 </body>

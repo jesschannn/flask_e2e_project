@@ -1,12 +1,46 @@
 {% extends "base.html" %} 
 
 {% block content %}
-
-<body class="bg-sky-100 p-4">
-    <div class="max-w-screen-md mx-auto bg-white p-4 shadow-md">
-        <div class="max-w-screen-md mx-auto bg-yellow-200 p-4 shadow-md">
-            <h1 class="text-2xl font-bold mb-4 text-center">Azure-Hosted CDN Video</h1>
-            <video src="static/Integrated care_ connecting medical and behavioral care  _ Tom Sebastian _ TEDxSnoIsleLibraries.mp4" alt="Video" controls height='100%' width='100%'></video>
-        </div>
+<section class="mb-6">
+    <div>
+        <h2 class="text-xl mb-2">Importance</h2>
+        <p>
+            Understanding medical malpractice safeguards patient rights, improves care quality, and fosters a safer healthcare environment by promoting accountability and informed decision-making.
+        </p>
     </div>
-    </body>
+</section>
+
+<section class="mb-6">
+    <div>
+        <h2 class="text-xl mb-2">Types of Medical Malpractice</h2>
+        <ul class="list-disc ml-6">
+            <li class="mb-2">Protects patient rights and safety</li>
+            <li class="mb-2">Improves healthcare quality and standards</li>
+            <li class="mb-2">Encourages informed decision-making</li>
+            <li class="mb-2">Promotes accountability in healthcare</li>
+            <li class="mb-2">Helps prevent medical errors and negligence</li>
+        </ul>
+    </div>
+</section>
+
+<section class="mb-6">
+    <div>
+        <h2 class="text-xl mb-2">Medical Malpractice: Towel Left in Patient - Grey's Anatomy Edition</h2>
+        <video controls class="w-full">
+            <source src="/static/Season 1 Episode 5 - There is a towel in a patient.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+<section class="mb-6">
+    <div>
+        <h2 class="text-xl mb-2">Medical Malpractice: Dysfunction in Healthcare Delivery - Grey's Anatomy Edition</h2>
+        <video controls class="w-full">
+            <source src="/static/Japril 6×06 - April Gets Fired (1_3).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+
+{% endblock %}
