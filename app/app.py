@@ -11,6 +11,18 @@ from authlib.common.security import generate_token
 from flask_session import Session
 from oauth.db_functions import update_or_create_user
 import logging
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://4e44b0fb5150f6a8ec9d89640fa349af@o4506300834840576.ingest.sentry.io/4506408639922176",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
 
 GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
 GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
@@ -39,13 +51,8 @@ conn_string = (
 db_engine = create_engine(conn_string, pool_pre_ping=True)
 
 @app.route('/')
-def index():
-    try: 
-        logging.debug("success! index page has been accessed")    
-        return render_template('base.html')
-    except Exception as e:
-        logging.error(f"You have encountered an error! {e}")
-        return "Please try again or reach out to Jessica Chan"
+def index():  
+    return render_template('base.html')
 
 @app.route('/about')
 def about():
@@ -131,6 +138,13 @@ def dashboard():
 def logout():
     session.pop('user', None)
     return redirect('/')
+
+@app.route('/error')
+def creating_error():
+    try:
+        1/0
+    except Exception as e:
+        raise Exception (f'Something went wrong: {e}')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
