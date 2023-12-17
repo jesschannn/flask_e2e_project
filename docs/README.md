@@ -21,8 +21,7 @@ Technologies used were Flask, Tailwind, MySQL Database on Azure, SQLAlchemy, API
 
 If an individual wanted to run my code locally without Docker, they would have to clone my app.py, templates folder, requirements.txt, .env, .gitignore, static folder, and oauth folder (everything in the app folder). Then the individual would have to `cd` into their on workspace, `cd` into the app folder, and run `python app.py` in their console. 
 
-![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/9395a32a-7a2a-4ffc-9b56-ea421234fc36)
-
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/c23e5a0d-d591-4f46-ab5e-e69b89de59ad)
 
 ## How to Run With Docker Locally
 
@@ -74,6 +73,30 @@ GOOGLE_CLIENT_ID= ***
 GOOGLE_CLIENT_SECRET= ***
 ```
 
-# Screenshots 
+# Screenshots
 
 ## Screenshots of Web Application (Local)
+
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/09d28673-7a43-4095-ab67-b5dc67498f3c)
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/5138f420-2ec9-490e-bfae-850be956a5fb)
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/1823aa44-49e6-46aa-a10f-0cdbef9f9391)
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/89188fac-20a9-42e0-bba8-2d4434de683c)
+
+## Screenshots of Google OAuth
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/e65ad256-940b-41c1-a386-505689416fbb)
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/62136645-da65-4cc6-a3b5-d36a44773e6e)
+
+## Screenshot of SQL Workbench
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/0cdfe105-489f-459b-8aa3-069a078f94f2)
+
+## Screenshot of SQL Database - Azure
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/4c1e58a5-45b8-4b5f-9345-cdf20fb07cf6)
+
+## Screenshot of Sentry.io
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/de35f3bc-1375-4fb0-aa5f-911fc592ec1d)
+
+## Screenshot of Docker
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/598492ab-a367-45d8-8a30-28faa78b5e4e)
+
+## Screenshot of Azure Deployment
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/6e75e053-f086-47fe-b5ca-fdcc3afcf2e4)
