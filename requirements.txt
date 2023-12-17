@@ -1,4 +1,7 @@
 flask
-Flask-SQLalchemy
+flask-SQLalchemy
 sentry-sdk
 SQLalchemy
+python-dotenv
+pandas
+gunicorn
