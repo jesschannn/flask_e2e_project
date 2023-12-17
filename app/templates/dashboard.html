@@ -10,22 +10,57 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
+<header class="bg-blue-400 text-white p-5">
+    <h1 class="text-2xl">Learn About Medical Malpractice!</h1>
+</header>
+
 <body class="bg-blue-200">
-    <h1> Dashboard</h1>
-    <h3> Welcome {{ user.name }} </h3>
-    <h2> User Details</h2>
-    <div>
-        <p> Name: {{ user.name }} </p>
-        <p> Email: {{ user.email }} </p>
-        <p> Profile Picture: <img src="{{ user.picture }}" alt="Profile Picture" style="width:50px;height:50px;"> </p>
-    </div>
-    <div>
-        <a href="/logout" class="logout-btn" style="text-decoration:none;">
-            <div class="btn-text">
-                Logout
+    <main class="p-4">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+            <div class="md:flex">
+                <div class="p-8">
+                    <h1 class="text-2xl font-bold mb-2">Welcome, {{ user.name }}</h1>
+                    <h2 class="text-lg font-semibold mb-4">User Details</h2>
+                    <div class="flex flex-col space-y-2">
+                        <p><span class="font-semibold">Name:</span> {{ user.name }}</p>
+                        <p><span class="font-semibold">Email:</span> {{ user.email }}</p>
+                        <div class="flex items-center">
+                            <span class="font-semibold mr-2">Profile Picture:</span>
+                            <img src="{{ user.picture }}" alt="Profile Picture" class="w-10 h-10 rounded-full">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </a>
-    </div>
+        </div>
+    </main>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+        <title>Flask app</title>
+    </head>
+    <body>
+        <div>
+            <a href="google/" class="logout-btn" style="text-decoration:none;">
+                <img id="google" src="/static/2.png"
+            alt="Google"
+            style="width:50px;height:50px;">
+            <div class="btn-text">
+                Log Out with Google
+            </div>
+            </a> 
+        </div>
+    </body>
+
+</html>
+
+<footer class="bg-blue-400 text-white p-5 mt-6">
+    <p>© 2023 HHA 504 Final. All Rights Reserved.</p>
+</footer>
 </body>
 
 </html>

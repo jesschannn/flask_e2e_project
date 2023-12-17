@@ -9,8 +9,8 @@ from flask_sqlalchemy import SQLAlchemy
 from authlib.integrations.flask_client import OAuth
 from authlib.common.security import generate_token
 from flask_session import Session
-import sentry_sdk
 from oauth.db_functions import update_or_create_user
+import logging
 
 GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
 GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
@@ -40,7 +40,12 @@ db_engine = create_engine(conn_string, pool_pre_ping=True)
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+    try: 
+        logging.debug("success! index page has been accessed")    
+        return render_template('base.html')
+    except Exception as e:
+        logging.error(f"You have encountered an error! {e}")
+        return "Please try again or reach out to Jessica Chan"
 
 @app.route('/about')
 def about():
@@ -65,14 +70,6 @@ def display_csv():
     sample_data = data[:50]
 
     return render_template('data.html', data=sample_data)
-
-@app.route('/sql')
-def sql():
-    query_medical_malpractice = "SELECT * FROM medical_malpractice"
-    df_medical_malpractice = read_sql(query_medical_malpractice, db_engine)
-    data_medical_malpractice = df_medical_malpractice.to_dict(orient='records')
-    
-    return render_template('sql.html', data_medical_malpractice=data_medical_malpractice)
 
 @app.route('/api', methods=['GET'])
 def api_get():
