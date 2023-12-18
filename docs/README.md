@@ -92,6 +92,12 @@ GOOGLE_CLIENT_SECRET= ***
 ## Screenshot of SQL Database - Azure
 ![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/4c1e58a5-45b8-4b5f-9345-cdf20fb07cf6)
 
+## Screenshot of API Endpoint
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/db2fa2cb-aadb-4508-a6e0-dc6da98d64fb)
+
+## Screenshot of Error Endpoint
+![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/b063b5b6-e97d-478d-b5a1-a69904b7f510)
+
 ## Screenshot of Sentry.io
 ![image](https://github.com/jesschannn/flask_e2e_project/assets/123782059/de35f3bc-1375-4fb0-aa5f-911fc592ec1d)
 
